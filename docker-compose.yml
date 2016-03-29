@@ -10,4 +10,4 @@ services:
   imagedb:
     image: mongo
     ports:
-     - "27017:27017"
+     - "27021:27017"

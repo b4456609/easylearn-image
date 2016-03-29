@@ -1,0 +1,13 @@
+version: '2'
+services:
+  easylearn-image-service:
+    build: .
+    ports:
+     - "8088:8080"
+     - "8089:8081"
+    links:
+      - imagedb
+  imagedb:
+    image: mongo
+    ports:
+     - "27017:27017"

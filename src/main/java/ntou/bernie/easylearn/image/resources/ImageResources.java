@@ -1,5 +1,7 @@
 package ntou.bernie.easylearn.image.resources;
 
+import com.codahale.metrics.annotation.ExceptionMetered;
+import com.codahale.metrics.annotation.Timed;
 import ntou.bernie.easylearn.image.core.ImgItem;
 import org.mongodb.morphia.Datastore;
 
@@ -23,6 +25,8 @@ public class ImageResources {
     }
 
     @POST
+    @Timed
+    @ExceptionMetered
     public Response sync(ImgItem imgItem) {
         datastore.save(imgItem);
         return Response.ok().build();
